@@ -22,19 +22,6 @@ Design a database to manage students, instructors, programs, courses, and studen
 - Add support for prerequisites (some courses require others).
 
 ---
-
-### 🔹 Scenario 2: Hospital Database
-Design a database for patient management, appointments, medical records, and billing.
-
-**User Requirements:**
-- Patient details including contact and insurance.
-- Doctors and their departments, contact info, specialization.
-- Appointments with reason, time, patient-doctor link.
-- Medical records with treatments, diagnosis, test results.
-- Billing and payment details for each appointment.
-
----
-
 ## 📝 Tasks:
 1. Identify entities, relationships, and attributes.
 2. Draw the ER diagram using any tool (draw.io, dbdiagram.io, hand-drawn and scanned).
@@ -51,7 +38,7 @@ Design a database for patient management, appointments, medical records, and bil
 University / Hospital (choose one)
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![image](https://github.com/user-attachments/assets/d9e4e698-faf0-41bf-a207-a77496480741)
 
 ## Entities and Attributes:
 - Entity1: Attributes
