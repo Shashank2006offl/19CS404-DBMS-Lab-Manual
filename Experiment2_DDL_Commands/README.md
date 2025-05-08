@@ -105,123 +105,190 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Insert a record with EmployeeID 001, Name Sarah Parker, Position Manager, Department HR, and Salary 60000 into the Employee table.
 
 ```sql
--- Paste your SQL code below for Question 1
+INSERT INTO Employee (EmployeeID,Name,Position,Department,Salary)
+VALUES (1,"Sarah Parker","Manager","HR",60000);
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/c6ed276a-7d12-49d7-905d-11e80c51db87)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Insert all books from Out_of_print_books into Books
+
+Table attributes are ISBN, Title, Author, Publisher, YearPublished
 
 ```sql
--- Paste your SQL code below for Question 2
+INSERT INTO Books (ISBN,Title,Author,Publisher,YearPublished)
+SELECT ISBN,Title,Author,Publisher,YearPublished FROM Out_of_print_books;
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/ecd2ff1d-cf28-4707-aa7b-e1bbe115978b)
 
 **Question 3**
 ---
--- Paste Question 3 here
+In the Products table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
+ProductID   Name              Category    Price       Stock
+----------  ---------------   ----------  ----------  ----------
+106         Fitness Tracker   Wearables
+107         Laptop            Electronics  999.99      50
+108         Wireless Earbuds  Accessories              100
+ 
 ```sql
--- Paste your SQL code below for Question 3
+INSERT INTO Products(ProductID,Name,Category)
+VALUES (106,"Fitness Tracker","Wearables");
+INSERT INTO Products(ProductID,Name,Category,Price,Stock)
+VALUES (107,"Laptop","Electronic",999.99,50);
+INSERT INTO Products(ProductID,Name,Category,Stock)
+VALUES (108 ,"Wireless Earbud","Accessorie",100);
+
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/820f795c-1bf4-46f0-8e8b-a95d43db2e00)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 
 ```sql
--- Paste your SQL code below for Question 4
+CREATE TABLE Products(ProductID INTEGER PRIMARY KEY, ProductName TEXT UNIQUE NOT NULL, Price REAL CHECK(Price>0), StockQuantity INTEGER CHECK(StockQuantity>0));
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/5fc6819f-3139-49e2-a234-40d91a0ebe40)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+Amount as REAL should be greater than 0.
+DueDate as DATE should be greater than the InvoiceDate.
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 5
+CREATE TABLE Invoices(
+InvoiceID INTEGER PRIMARY KEY, 
+InvoiceDate DATE,
+Amount REAL CHECK(Amount>0),
+DueDate DATE CHECK(Duedate>InvoiceDate),
+OrderID INTEGER,
+FOREIGN KEY (OrderID) REFERENCES Orders(OrderID));
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/c6cf140a-fc35-4a47-94ff-1d29a63eb545)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a table named Invoices with the following constraints:
+
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+DueDate as DATE should be greater than the InvoiceDate.
+Amount as REAL should be greater than 0.
 
 ```sql
--- Paste your SQL code below for Question 6
+CREATE TABLE Invoices(
+InvoiceID INTEGER PRIMARY KEY, 
+InvoiceDate DATE,
+DueDate DATE CHECK(Duedate>InvoiceDate),
+Amount REAL CHECK(Amount>0)
+);
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/bc9b5149-c661-4c31-ae18-f38ac861247b)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should cascade updates and deletes.
+item_desc and rate should not accept NULL.
 
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE item(
+item_id TEXT PRIMARY KEY, 
+item_desc TEXT NOT NULL,
+rate INTEGER NOT NULL,
+icom_id TEXT CHECK(length(icom_id)=4),
+FOREIGN KEY (icom_id) REFERENCES company(com_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/ebc27971-d5c7-49b1-bd46-757a226dffc5)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a table named Events with the following columns:
+
+EventID as INTEGER
+EventName as TEXT
+EventDate as DATE
 
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE Events(
+EventID INTEGER,
+EventName TEXT,
+EventDate DATE
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/e76d34e3-07f8-47ad-8ebd-6d15343b04a0)
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write an SQL query to change the name of the column id to employee_id in the table employee.
 
 ```sql
--- Paste your SQL code below for Question 9
+ALTER TABLE employee
+RENAME COLUMN "id" TO "employee_id";
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/9f72cd86-7380-4ecf-90c4-c4c38bb143bb)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write an SQL query to add two new columns, designation and net_salary, to the table Companies. The designation column should have a data type of varchar(50), and the net_salary column should have a data type of number.
 
 ```sql
--- Paste your SQL code below for Question 10
+ALTER TABLE Companies
+ADD COLUMN designation varchar(50);
+ALTER TABLE Companies
+ADD COLUMN net_salary number;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/3f385611-a83e-472e-b136-71d03337a7b3)
 
 
 ## RESULT
