@@ -57,3 +57,4 @@ University / Hospital (choose one)
 Brief explanation of why you chose certain entities, relationships, and assumptions
 
 ## RESULT
+applied the concepts of ER modeling by creating an ER diagram for a real-world application.
