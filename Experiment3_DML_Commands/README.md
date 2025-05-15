@@ -1,6 +1,6 @@
 # Experiment 3: DML Commands
-# Name: GURUMURTHY S
-# Reference Number:212223230066
+# Name: SHASHANK
+# Reference Number:212223230205
 ## AIM
 To study and implement DML (Data Manipulation Language) commands.
 
