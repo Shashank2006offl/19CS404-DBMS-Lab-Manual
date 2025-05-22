@@ -1,7 +1,7 @@
 # Experiment 4: Aggregate Functions, Group By and Having Clause
 
-### Name : Prajin S
-### Register Number : 212223230151
+### Name : Shashank R
+### Register Number : 212223230205
 
 ## AIM
 To study and implement aggregate functions, GROUP BY, and HAVING clause with suitable examples.
