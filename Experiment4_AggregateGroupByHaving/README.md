@@ -1,5 +1,8 @@
 # Experiment 4: Aggregate Functions, Group By and Having Clause
 
+### Name : Prajin S
+### Register Number : 212223230151
+
 ## AIM
 To study and implement aggregate functions, GROUP BY, and HAVING clause with suitable examples.
 
@@ -35,126 +38,153 @@ FROM table_name
 GROUP BY column_name
 HAVING condition;
 ```
-
 **Question 1**
---
--- Paste Question 1 here
+---
+How many prescriptions were written for each medication?
+Sample table:Prescriptions Table
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT Medication,COUNT(*) AS TotalPrescriptions FROM Prescriptions GROUP BY Medication;
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/33eca2bd-8e56-4500-8273-b62f43eb6200)
 
 **Question 2**
----
--- Paste Question 2 here
+--
+How many appointments are scheduled for each patient?
+Sample table: Appointments Table
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT PatientID,COUNT(*) AS TotalAppointments FROM Appointments GROUP BY PatientID;
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/320c3321-98ef-42e9-8fc8-8e4316548b0e)
+
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+How many appointments are scheduled in each hour of the day?
+Sample table:Appointments Table
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT strftime('%H',AppointmentDateTime) AS HourOfDay,
+COUNT(*) AS TotalAppointments FROM Appointments GROUP BY HourOfDay;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/9cb88d9a-428f-4b10-bced-c0e8bd94fa25)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to Calculate the average income of the employees with names starting with 'A': 
+Table: employee
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT AVG(income) AS avg_income FROM employee WHERE name LIKE 'A%';
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/34a737bb-48cd-40ee-90c1-ebff0645244e)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to Calculate the average email length (in characters) for people who lives in Mumbai city
+Table: customer
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT AVG(LENGTH(email)) AS avg_email_length_below_30 FROM customer WHERE city="Mumbai";
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/3bdd895b-fc92-468a-81b3-3ec39f0f8f9b)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to find the number of employees who are having the same age removing the duplicate values.
+Sample table: employee
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT COUNT(DISTINCT age) AS COUNT FROM employee;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/93209a82-d5ab-4445-87d7-94db9d6e978a)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to find the total amount of fruits with a unit type of 'LB'.
+Note: Inventory attribute contains amount of fruits
 
+Table: fruits
 ```sql
--- Paste your SQL code below for Question 7
+SELECT SUM(inventory) AS total FROM fruits WHERE unit='LB';
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/42854056-b20b-4908-a1af-a2cd0f35be5b)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that accomplishes the grouping of data by age, calculates the average income for each age group, and includes only those age groups where the average income falls between 300,000 and 500,000.
+
+Sample table: employee
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT age,AVG(income) AS 'AVG(income)' FROM employee
+GROUP BY age HAVING AVG(income) BETWEEN 300000 AND 500000;
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/f2d65799-a485-423d-b7e2-eb3090cec963)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to identify the cities (addresses) where the average salary is greater than Rs. 5000, as per the "customer1" table.
+
+Sample table: customer1
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT address,AVG(salary) AS 'AVG(salary)' FROM customer1
+GROUP BY address HAVING AVG(salary)>5000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/53d9ddee-2737-4919-ae92-3f7816b5dca7)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that accomplishes the selection of number of products for each category from products table which includes only those products where the category ID is greater than 2.
+
+Sample table: products
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT category_id,COUNT(category_id) AS COUNT FROM products
+GROUP BY category_id HAVING category_id>2;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/42ea05e7-ae5d-4fc4-8797-a3ae3d84bcce)
+
 
 
 ## RESULT
