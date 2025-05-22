@@ -1,5 +1,8 @@
 # Experiment 7: PL/SQL – Variables, Control Structures and Loops
 
+## Name : SHASHANK R
+## Register Number : 212223230205
+
 ## AIM
 To write and execute simple PL/SQL programs using variables, loops, and conditional statements.
 
